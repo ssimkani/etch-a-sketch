@@ -2,6 +2,8 @@ const container = document.querySelector("#container");
 const btnEraser = document.querySelector("#eraser");
 const btnClear = document.querySelector("#clear");
 const btnDraw = document.querySelector("#draw");
+const changeGridSize = document.querySelector("#change-grid");
+
 
 for (let row = 0; row < 16; row++) {
   for (let col = 0; col < 16; col++) {
@@ -22,7 +24,7 @@ for (let row = 0; row < 16; row++) {
       });
     });
     btnClear.addEventListener("click", () => {
-        newDiv.style.backgroundColor = "white";
-    })
+      newDiv.style.backgroundColor = "white";
+    });
   }
 }
