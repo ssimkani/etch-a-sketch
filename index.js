@@ -1,4 +1,6 @@
 const container = document.querySelector("#container");
+btnEraser = document.querySelector("#eraser")
+btnClear = document.querySelector("#clear")
 
 for (let row = 0; row < 16; row++) {
   for (let col = 0; col < 16; col++) {
@@ -8,5 +10,6 @@ for (let row = 0; row < 16; row++) {
     newDiv.addEventListener("mouseover", () => {
       newDiv.style.backgroundColor = "blue";
     });
+
   }
 }
