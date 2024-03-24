@@ -4,7 +4,7 @@ const btnClear = document.querySelector("#clear");
 const btnDraw = document.querySelector("#draw");
 const changeGridSize = document.querySelector("#change-grid");
 const enterGridSize = document.querySelector("#enter-grid-size");
-
+const errorText = document.querySelector("#error")
 function createGrid(inputValue) {
   container.textContent = "";
 
@@ -42,5 +42,11 @@ createGrid(16);
 
 enterGridSize.addEventListener("click", () => {
   let inputValue = parseInt(changeGridSize.value);
-  createGrid(inputValue);
+  if (inputValue <= 0 || inputValue > 100) {
+    errorText.textContent = "Please enter a number between 1 and 100."
+  } else {
+    errorText.textContent = "";
+    createGrid(inputValue);
+  }
+
 });
