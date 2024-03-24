@@ -5,5 +5,8 @@ for (let row = 0; row < 16; row++) {
     const newDiv = document.createElement("div");
     newDiv.classList.add("grid-boxes");
     container.appendChild(newDiv);
+    newDiv.addEventListener("mouseover", () => {
+      newDiv.style.backgroundColor = "blue";
+    });
   }
 }
