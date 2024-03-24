@@ -1,5 +1,5 @@
 #container {
-    margin: auto;
+  margin: auto;
   display: flex;
   flex-wrap: wrap;
   height: 800px;
@@ -10,6 +10,4 @@
   border-style: solid;
   border-color: black;
   box-sizing: border-box;
-  width: calc(800px / 16);
-  height: calc(800px / 16);
 }

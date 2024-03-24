@@ -5,34 +5,42 @@ const btnDraw = document.querySelector("#draw");
 const changeGridSize = document.querySelector("#change-grid");
 const enterGridSize = document.querySelector("#enter-grid-size");
 
-for (let row = 0; row < 16; row++) {
-  for (let col = 0; col < 16; col++) {
-    const newDiv = document.createElement("div");
-    newDiv.classList.add("grid-boxes");
-    container.appendChild(newDiv);
+function createGrid(inputValue) {
+  container.textContent = "";
 
-    newDiv.addEventListener("mouseover", () => {
-      newDiv.style.backgroundColor = "blue";
-    });
+  for (let row = 0; row < inputValue; row++) {
+    for (let col = 0; col < inputValue; col++) {
+      const newDiv = document.createElement("div");
+      newDiv.classList.add("grid-boxes");
+      container.appendChild(newDiv);
 
-    btnEraser.addEventListener("click", () => {
-      newDiv.addEventListener("mouseover", () => {
-        newDiv.style.backgroundColor = "white";
-      });
-    });
+      newDiv.style.cssText = `width: calc(800px / ${inputValue}); height: calc(800px / ${inputValue});`;
 
-    btnDraw.addEventListener("click", () => {
       newDiv.addEventListener("mouseover", () => {
         newDiv.style.backgroundColor = "blue";
       });
-    });
 
-    btnClear.addEventListener("click", () => {
-      newDiv.style.backgroundColor = "white";
-    });
+      btnEraser.addEventListener("click", () => {
+        newDiv.addEventListener("mouseover", () => {
+          newDiv.style.backgroundColor = "white";
+        });
+      });
 
-    enterGridSize.addEventListener("click", () => {
-      const inputValue = changeGridSize.value;
-    });
+      btnDraw.addEventListener("click", () => {
+        newDiv.addEventListener("mouseover", () => {
+          newDiv.style.backgroundColor = "blue";
+        });
+      });
+
+      btnClear.addEventListener("click", () => {
+        newDiv.style.backgroundColor = "white";
+      });
+    }
   }
 }
+createGrid(16);
+
+enterGridSize.addEventListener("click", () => {
+  let inputValue = parseInt(changeGridSize.value);
+  createGrid(inputValue);
+});
